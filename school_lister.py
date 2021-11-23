@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import os
 import postcodes_io_api
+from timezonefinder import TimezoneFinder
 
 st.title("List of schools")
 
@@ -71,7 +72,7 @@ suburbs = schools_by_name[schools_by_name['State'] == state]
 suburb = st.sidebar.selectbox("Suburb", options = list(suburbs["Suburb"]))
 
 result = suburbs[suburbs["Suburb"] == suburb]
-result
+
 
 api  = postcodes_io_api.Api(debug_http=False)
 
@@ -84,6 +85,9 @@ if  country == "United Kingdom":
     except:
         result["latitude"] = 0.0
         result["longitude"] = 0.0
+tf = TimezoneFinder()
+result['timezone'] = tf.timezone_at(lng=float(result["longitude"].astype(float)), lat=float(result["latitude"].astype(float)))
+result
 try:
     st.map(result)
 except:
