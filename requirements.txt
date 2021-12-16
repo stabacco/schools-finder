@@ -17,6 +17,8 @@ decorator==5.0.9
 defusedxml==0.7.1
 entrypoints==0.3
 et-xmlfile==1.1.0
+geographiclib==1.52
+geopy==2.2.0
 gitdb==4.0.7
 GitPython==3.1.17
 gql==2.0.0
@@ -78,12 +80,14 @@ smmap==4.0.0
 streamlit==0.82.0
 terminado==0.10.0
 testpath==0.5.0
+timezonefinder==5.2.0
 toml==0.10.2
 toolz==0.11.1
 tornado==6.1
 traitlets==5.0.5
 typing-extensions==3.10.0.0
 tzlocal==2.1
+unsync==1.4.0
 urllib3==1.26.5
 validators==0.18.2
 watchdog==2.1.2
@@ -92,4 +96,3 @@ webencodings==0.5.1
 widgetsnbextension==3.5.1
 xlrd==2.0.1
 zipp==3.4.1
-timezonefinder==5.2.0
