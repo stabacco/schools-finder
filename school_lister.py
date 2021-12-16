@@ -6,6 +6,7 @@ import postcodes_io_api
 from timezonefinder import TimezoneFinder
 from geopy.geocoders import Nominatim
 
+
 st.title("List of schools")
 
 countries = ["Australia", "New Zealand", "United Kingdom"]
@@ -31,27 +32,6 @@ def get_timezone(lat, long):
     except:
         return "No timezone found"
 
-
-@unsync
-def get_uk_lat_long_from_postcode(postcode):
-    if not postcode['result']:
-        latitude = 0
-        longitude = 0 
-        address = "No address found"
-        timezone = "No timezone found"
-    else:
-        latitude = postcode["result"]["latitude"]
-        longitude = postcode["result"]["longitude"]
-        address = get_address_from_location(postcode["result"]["latitude"], postcode["result"]["longitude"])
-        timezone = get_timezone(postcode["result"]["latitude"], postcode["result"]["longitude"])
-
-    return latitude, longitude, address, timezone
-
-# @unsync
-def get_uk_lat_long_from_postcodes(postcodes):
-    tasks = [get_uk_lat_long_from_postcode(postcode) for postcode in postcodes['result']]
-    print(tasks)
-    return [task.result() for task in tasks]
 
 
 @st.cache
